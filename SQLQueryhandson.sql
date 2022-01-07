@@ -1,3 +1,19 @@
+--qeury on 7/1/22***********************************
+select avg(purch_amt ) as'avg_purchaseamount' from Orderdetails--qeury1  7/1/22
+select max(purch_amt ) as'avg_purchaseamount' from Orderdetails--qeury2  7/1/22
+select count(name) 'no.ofsalespeople'from salesmanreport--qeury3  7/1/22
+select count(cust_name ) 'no.ofcustomers'from customer--qeury4   7/1/22
+select max(grade) from customer 
+select city, max(grade) from customer group by city--qeury5  7/1/22
+select customer_id ,max(purch_amt) from Orderdetails group by customer_id--qeury6 7/1/22
+--qeury on 6/1/22  ************************************************
+select ord_date,salesman_id,ORD_no ,purch_amt from  Orderdetails
+select ORD_no ,ord_date,purch_amt  from Orderdetails where salesman_id=500
+select * from salesmanreport
+select ord_date,salesman_id,ORD_no ,purch_amt from  Orderdetails
+select ORD_no ,ord_date,purch_amt  from Orderdetails where salesman_id=500
+--***************************************
+
 create database salesmanreport
 create table salesmanreport(salesman_id  numeric(5) primary key,    name  varchar(30) not null unique ,   city  varchar(15) not null,  commission decimal(5,2 ));
 select * from salesmanreport
@@ -35,13 +51,6 @@ insert into Orderdetails values(70013       ,3045.6     , '2012-04-25' ,3002 ,  
 select ord_date,salesman_id,ORD_no ,purch_amt from  Orderdetails
 select ORD_no ,ord_date,purch_amt  from Orderdetails where salesman_id=500
 
-select avg(purch_amt ) as'avg_purchaseamount' from Orderdetails--qeury1  7/1/22
-select max(purch_amt ) as'avg_purchaseamount' from Orderdetails--qeury2  7/1/22
-select count(name) 'no.ofsalespeople'from salesmanreport--qeury3  7/1/22
-select count(cust_name ) 'no.ofcustomers'from customer--qeury4   7/1/22
-select max(grade) from customer 
-select city, max(grade) from customer group by city--qeury5  7/1/22
-select customer_id ,max(purch_amt) from Orderdetails group by customer_id--qeury6 7/1/22
 
 
 create table customer(customer_id  numeric(5), cust_name varchar(30),city varchar(15), grade numeric(3), salesman_id numeric(5))
